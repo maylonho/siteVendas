@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("pages/php/conexao.php");
+include("pages/php/verifica_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,9 +45,9 @@ include("pages/php/conexao.php");
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="pages/php/logoff.php">
+              <labe>Olá <?php echo $_SESSION['usuario_logado']; ?></label>
+              <button class="btn btn-outline-success" type="submit">Sair</button>
             </form>
           </div>
         </div>

@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="pt_br">
   <head>
@@ -23,9 +25,14 @@
         <div class="imgLogo">
           <img src="imgs/logo.png" id="icon" alt="User Icon"/>
         </div>
+        <div class="row">
+          <?php if(isset($_SESSION['usuario_invalido'])) : ?>
+          <h5 style="color:red;">Usuário Invalido</h5>
+          <?php endif; unset($_SESSION['usuario_invalido']); ?>
+        </div>
     
         <!-- Login Form -->
-        <form>
+        <form action="pages/php/login.php" method="POST">
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha">
           <input type="submit" class="fadeIn fourth" value="Entrar">
