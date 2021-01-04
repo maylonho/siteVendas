@@ -1,5 +1,5 @@
 <?php
 if(!isset($_SESSION['usuario_logado'])){
-    header('Location:login.html');
+    header('Location:login.php');
 }
 ?>
