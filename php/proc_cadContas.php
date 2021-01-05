@@ -54,7 +54,7 @@ for ($i=0; $i < $qtdMes; $i++) {
 
 $conexao->close();
 
-header('Location:../cadContas.php');
+header('Location:../pages/cadContas.php');
 exit;
 
 ?>

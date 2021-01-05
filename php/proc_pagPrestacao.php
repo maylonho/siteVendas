@@ -9,7 +9,7 @@ $result = mysqli_query($conexao, $sql);
 
     if(mysqli_affected_rows($conexao)){
         $_SESSION['prest_paga'] = true;
-        header("Location:../listDeve.php");
+        header("Location:../pages/listDeve.php");
     }
 
 

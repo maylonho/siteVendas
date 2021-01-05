@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('php/conexao.php');
-include("php/verifica_login.php");
+include('../php/conexao.php');
+include("../php/verifica_login.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,67 +19,18 @@ include("php/verifica_login.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-2">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">SGVC</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+    <?php include("../componentes/nav-bar-sup.php");?>
 
     <div>
       <div class="col-12 row mt-1">
 
-      <!-- Menu Lateral -->
-        <div class="col-2 border-end">
-          <ul class="nav flex-column nav-pills mt-3 mx-3">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="cadContas.php">Cadastro de Contas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="listDeve.html">Lista de Contas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=".php/testes.php" tabindex="-1" aria-disabled="false">TESTES</a>
-            </li>
-          </ul>
-        </div>
+      
+      <!--Menu Lateral-->
+      <?php $_SESSION['pg'] = "listDeve"; include("../componentes/nav-lateral.php") ?>
 
 
             <!--CORPO DO SITE PRINCIPAL-->
-            <div class="col-10" style="background-color: rgb(255, 255, 255); height: 90vh;">
+            <div class="col-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
                 <div class="container mt-3">
                   <form class="row g-3" action="listDeve.php" method="GET">
                 
@@ -238,7 +189,7 @@ include("php/verifica_login.php");
                       }
                     </script>
 
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja quitar a dívida?', 'php/proc_pagPrestacao.php?idCompra=<?php echo $idCompra; ?>&idParcela=<?php echo $idParcela; ?>')">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja quitar a dívida?', '../php/proc_pagPrestacao.php?idCompra=<?php echo $idCompra; ?>&idParcela=<?php echo $idParcela; ?>')">
                       Efetuar Pagamento
                     </button>
 

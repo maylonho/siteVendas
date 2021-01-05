@@ -13,10 +13,10 @@ $row = mysqli_fetch_assoc($result);
 
 if($row['COUNT(usuario)'] == 1){
     $_SESSION['usuario_logado'] = $usuario;
-    header('Location:../../index.php');
+    header('Location:../pages/home.php');
 }else{
     $_SESSION['usuario_invalido'] = true;
-    header('Location:../../login.php');
+    header('Location:../pages/login.php');
 }
 
 ?>

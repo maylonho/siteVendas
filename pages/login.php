@@ -10,7 +10,7 @@ session_start();
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="pages/css/pg_login.css" rel="stylesheet" />
+    <link href="css/pg_login.css" rel="stylesheet" />
     <title>SGVC!</title>
   </head>
   <body>
@@ -23,7 +23,7 @@ session_start();
     
         <!-- Icon -->
         <div class="imgLogo">
-          <img src="imgs/logo.png" id="icon" alt="User Icon"/>
+          <img src="../imgs/logo.png" id="icon" alt="User Icon"/>
         </div>
         <div class="row">
           <?php if(isset($_SESSION['usuario_invalido'])) : ?>
@@ -32,7 +32,7 @@ session_start();
         </div>
     
         <!-- Login Form -->
-        <form action="pages/php/proc_login.php" method="POST">
+        <form action="../php/proc_login.php" method="POST">
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha">
           <input type="submit" class="fadeIn fourth" value="Entrar">
