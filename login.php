@@ -32,7 +32,7 @@ session_start();
         </div>
     
         <!-- Login Form -->
-        <form action="pages/php/login.php" method="POST">
+        <form action="pages/php/proc_login.php" method="POST">
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha">
           <input type="submit" class="fadeIn fourth" value="Entrar">

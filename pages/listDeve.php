@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('php/conexao.php');
+include("php/verifica_login.php");
 ?>
 
 <!DOCTYPE html>

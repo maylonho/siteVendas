@@ -1,7 +1,10 @@
 <?php
 session_start();
 include("pages/php/conexao.php");
-include("pages/php/verifica_login.php");
+
+if(!isset($_SESSION['usuario_logado'])){
+  header('Location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
