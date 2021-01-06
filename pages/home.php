@@ -1,10 +1,7 @@
 <?php
 session_start();
 include("../php/conexao.php");
-
-if(!isset($_SESSION['usuario_logado'])){
-  header('Location:login.php');
-}
+include("../php/verifica_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,10 +30,16 @@ if(!isset($_SESSION['usuario_logado'])){
         <div class="col-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
             <h1 style="text-align: center;">Bem Vindo ao SGVC, nunca mais esqueça suas contas!</h1>
             <?php
-            $data = new DateTime('+1 month');
+            $data = new DateTime();
+            $ano = $data->format('Y');
+            $mes = $data->format('m');
+            $dia = 1;
+
+            $data->setDate($ano, $mes+1, $dia);
             $data_final = $data->format('Y-m-d');
-            $data2 = new DateTime();
-            $data_inicial = $data2->format('Y-m-d');
+
+            $data->setDate($ano, $mes, $dia);
+            $data_inicial = $data->format('Y-m-d');
 
             $sql = "SELECT *,date_format(`vencimento`,'%d/%m/%Y') as `vencimento_formatada` FROM prestacoes WHERE vencimento BETWEEN ('$data_inicial') AND ('$data_final') AND statusPag='0' order by vencimento asc";
             $result = mysqli_query($conexao, $sql);

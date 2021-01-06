@@ -12,13 +12,15 @@ include("../php/verifica_login.php");
     <title>Sistema de Gestão de Vendas e Contas</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="css/estilos.css" rel="stylesheet" />
+    <link href="../css/estilos.css" rel="stylesheet" />
 
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
+    <!--Scrips Pessoais - Funções -->
+    <script src="../js/functions.js" ></script>
+
     <?php include("../componentes/nav-bar-sup.php");?>
 
     <div>
@@ -175,19 +177,6 @@ include("../php/verifica_login.php");
 
                       </tbody>
                     </table>
-                    <script>
-                        var linkPag = "Padrao";
-                      function definirDadosModal(titulo, desc, link){
-                        document.getElementById("exampleModalLabel").innerHTML = titulo;
-                        document.getElementById("modal-body").innerHTML = desc;
-                        linkPag = link;
-                        
-                      }
-
-                      function linkAtual(){
-                        return linkPag;
-                      }
-                    </script>
 
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja quitar a dívida?', '../php/proc_pagPrestacao.php?idCompra=<?php echo $idCompra; ?>&idParcela=<?php echo $idParcela; ?>')">
                       Efetuar Pagamento
@@ -219,8 +208,6 @@ include("../php/verifica_login.php");
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <script>
-            </script>
             <button type="button" class="btn btn-primary" onclick=location.href=linkAtual()>Continuar</button>
           </div>
         </div>
