@@ -20,14 +20,21 @@ include("../php/verifica_login.php");
     <div>
 
 
-    <div class="col-12 row mt-1">
+    <div class="row mb-5">
+      <div class="col-sm-4 col-md-2 mb-3">
         
-      <!--Menu Lateral-->
-      <?php $_SESSION['pg'] = "home"; include("../componentes/nav-lateral.php") ?>
+                
+                                  
+        <!--Menu Lateral-->
+        <?php $_SESSION['pg'] = "home"; include("../componentes/nav-lateral2.php") ?>
+            
+    
+    
+      </div>
 
 
         <!--CORPO DO SITE PRINCIPAL-->
-        <div class="col-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
+        <div class="col-sm-8 col-md-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
             <h1 style="text-align: center;">Bem Vindo ao SGVC, nunca mais esqueça suas contas!</h1>
             <?php
             $data = new DateTime();

@@ -24,13 +24,15 @@ include("../php/verifica_login.php");
     <!--Menu nav Superior-->
     <?php include("../componentes/nav-bar-sup.php");?>
 
-    <div class="row col-12 mt-1">
+    <div class="row mb-5">
         
+      <div class="col-sm-4 col-md-2 mb-3">
       <!--Menu Lateral-->
-      <?php $_SESSION['pg'] = "cadContas"; include("../componentes/nav-lateral.php") ?>
+      <?php $_SESSION['pg'] = "cadContas"; include("../componentes/nav-lateral2.php") ?>
+      </div>
 
       <!--CORPO DO SITE PRINCIPAL-->
-      <div class="col-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
+      <div class="col-sm-8 col-md-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
                         
         <div class="container">
 

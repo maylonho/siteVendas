@@ -24,85 +24,92 @@ $contas = new Contas();
 
     <?php include("../componentes/nav-bar-sup.php");?>
 
-    <div>
-      <div class="col-12 row mt-1">
-
+    <div class="row mb-5">
+          
+      <div class="col-sm-4 col-md-2 mb-3">
       
-      <!--Menu Lateral-->
-      <?php $_SESSION['pg'] = "listDeve"; include("../componentes/nav-lateral.php") ?>
-
-
-            <!--CORPO DO SITE PRINCIPAL-->
-            <div class="col-10" style="background-color: rgb(255, 255, 255); height: 80vh;">
-                <div class="container mt-3">
-                  <form class="row g-3" action="listDeve.php" method="GET">
-                
-                    <div class="col-md-3">
-                      <label for="data-inicial" class="form-label">Data Inicial</label>
-                      <input type="date" class="form-control" id="data-inicial" name="data-inicial">
-                    </div>
-                    <div class="col-md-3">
-                      <label for="data-final" class="form-label">Data Final</label>
-                      <input type="date" class="form-control" id="data-final" name="data-final">
-                    </div>
-                    <div class="col-md-4 row justify-content-end mt-5">
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Pesquisar</button>
-                        </div>
-                    </div>
-                  </form>
-
-                    <div class="col-12 row">
-
-                    <?php
-                        if(isset($_SESSION['prest_paga'])):
-                    ?>
-                        <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-                          <strong>Feito!</strong> A Prestação foi paga com sucesso!
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    <?php
-                        endif;
-                        unset($_SESSION['prest_paga']);
-                    ?>
-                        <h1>...</h1>
-                    <!--TABELA-->
-                
-                    <?php
-
-                      if(!isset($_GET['data-inicial']) & !isset($_GET['idCompra']) ){
-                        $contas->listarPrestacoes();
-                      }
-                    
-                    
-                      if (isset($_GET['data-inicial']) & isset($_GET['data-final'])  & !isset($_GET['idCompra'])) {
-                        $contas->listarContaPorData();
-
-
-                      }
-                      if (isset($_GET['idCompra']) & isset($_GET['idParcela'])) {
-                        $idCompra = $_GET['idCompra'];
-                        $idParcela = $_GET['idParcela'];
-                        $contas->mostrarDadosConta($idCompra, $idParcela);
-                        
-
-                      ?>
-                        
-
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja quitar a dívida?', '../php/proc_pagPrestacao.php?idCompra=<?php echo $idCompra; ?>&idParcela=<?php echo $idParcela; ?>')">
-                      Efetuar Pagamento
-                    </button>
-
-                     
-                    <?php 
-                      } 
-                    ?>
-                        
-                </div>
-            </div>
-        </div>
+              
+                                
+              <!--Menu Lateral-->
+              <?php $_SESSION['pg'] = "listDeve"; include("../componentes/nav-lateral2.php") ?>
+                  
+          
+          
       </div>
-    </div>
+            
+      <div class="col-sm-8 col-md-10">
+      
+              
+          <div class="container mt-3">
+            <form class="row g-3" action="listDeve.php" method="GET">
+          
+              <div class="col-md-3">
+                <label for="data-inicial" class="form-label">Data Inicial</label>
+                <input type="date" class="form-control" id="data-inicial" name="data-inicial">
+              </div>
+              <div class="col-md-3">
+                <label for="data-final" class="form-label">Data Final</label>
+                <input type="date" class="form-control" id="data-final" name="data-final">
+              </div>
+              <div class="col-md-4 row justify-content-end mt-5">
+                  <div class="col-auto">
+                      <button type="submit" class="btn btn-primary">Pesquisar</button>
+                  </div>
+              </div>
+            </form>
+
+              <div class="col-12 row">
+
+              <?php
+                  if(isset($_SESSION['prest_paga'])):
+              ?>
+                  <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+                    <strong>Feito!</strong> A Prestação foi paga com sucesso!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              <?php
+                  endif;
+                  unset($_SESSION['prest_paga']);
+              ?>
+                  <h1>...</h1>
+              <!--TABELA-->
+          
+              <?php
+
+                if(!isset($_GET['data-inicial']) & !isset($_GET['idCompra']) ){
+                  $contas->listarPrestacoes();
+                }
+              
+              
+                if (isset($_GET['data-inicial']) & isset($_GET['data-final'])  & !isset($_GET['idCompra'])) {
+                  $contas->listarContaPorData();
+
+
+                }
+                if (isset($_GET['idCompra']) & isset($_GET['idParcela'])) {
+                  $idCompra = $_GET['idCompra'];
+                  $idParcela = $_GET['idParcela'];
+                  $contas->mostrarDadosConta($idCompra, $idParcela);
+                  
+
+                ?>
+                  
+
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja quitar a dívida?', '../php/proc_pagPrestacao.php?idCompra=<?php echo $idCompra; ?>&idParcela=<?php echo $idParcela; ?>')">
+                Efetuar Pagamento
+              </button>
+
+                
+              <?php 
+                } 
+              ?>
+               
+      </div>
+                
+                </div>
+            
+            </div>
+          </div>
 
     
 

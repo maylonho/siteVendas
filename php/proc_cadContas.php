@@ -36,7 +36,7 @@ for ($i=0; $i < $qtdMes; $i++) {
     $ano = $data->format('Y');
     $mes = $data->format('m');
     $dia = $data->format('d');
-    $data->setDate($ano, $mes+$i, $diaVencimento);
+    $data->setDate($ano, ($mes+1)+$i, $diaVencimento);
     $dataNova = $data->format('Y-m-d');
 
     $idParcela = ($i +1);
